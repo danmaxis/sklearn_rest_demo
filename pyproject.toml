@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "sklearn_rest_demo"
+version = "0.1.0"
+description = "Scikit learn demonstration using django rest"
+authors = ["Danilo Heroso de Deus Pereira <danmaxis@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+scikit-learn = "^1.1.2"
+Django = "^4.1"
+django-rest = "^0.8.7"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
