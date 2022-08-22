@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qr*g(*&z*v%=t+oz7xhl^8p8fx5-cp(+$t$paij*=c$k9!46lj'
+SECRET_KEY = 'django-insecure-' + \
+    'qr*g(*&z*v%=t+oz7xhl^8p8fx5-cp(+$t$paij*=c$k9!46lj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -93,16 +94,21 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.' +
+        'UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -128,3 +134,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+def build_debug_url(filename, lineno):
+    return f'vscode://file/{filename}:' \
+     + ('' if lineno is None else f"{lineno}")
+
+
+IOMMI_DEBUG_URL_BUILDER = build_debug_url
+
+IOMMI_DEFAULT_STYLE = "semantic_ui"
